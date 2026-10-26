@@ -4,7 +4,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import pedro.matos.cached_content_api.dto.ArticleResponseDTO;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -15,7 +14,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ConflictException.class)
-    public ResponseEntity<String> handleConflit(ResourceNotFoundException exception){
+    public ResponseEntity<String> handleConflict(ConflictException exception){
         return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
     }
 }
